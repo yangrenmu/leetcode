@@ -78,7 +78,7 @@ export class ListNode {
  */
 
 function removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
-  let dummy = new ListNode(0);
+  const dummy = new ListNode(0);
   dummy.next = head;
   let p1: ListNode | null = dummy;
   for (let i = 0; i <= n; i++) {
