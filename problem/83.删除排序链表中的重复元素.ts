@@ -61,7 +61,7 @@ function deleteDuplicates(head: ListNode | null): ListNode | null {
   let slow: ListNode | null = head;
   let fast: ListNode | null = head;
   while (fast !== null) {
-    if (slow.val != fast.val) {
+    if (slow.val !== fast.val) {
       slow.next = fast;
       slow = slow.next;
     }

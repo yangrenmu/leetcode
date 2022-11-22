@@ -52,6 +52,15 @@
 
 // @lc code=start
 function carPooling(trips: number[][], capacity: number): boolean {
-  return true;
+  const diff = new Array(1001).fill(0);
+  trips.forEach((v) => {
+    let i = v[1];
+    const j = v[2] - 1; // v[2] 站，乘客已下车
+    while (i <= j) {
+      diff[i] += v[0];
+      i++;
+    }
+  });
+  return !diff.some((v) => v > capacity);
 }
 // @lc code=end

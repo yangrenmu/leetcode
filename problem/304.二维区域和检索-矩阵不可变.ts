@@ -71,8 +71,8 @@ class NumMatrix {
   preMatrix: number[][];
 
   constructor(matrix: number[][]) {
-    let lenW = matrix.length;
-    let lenH = matrix[0].length;
+    const lenW = matrix.length;
+    const lenH = matrix[0].length;
     if (lenW === 0 || lenH === 0) return;
 
     this.preMatrix = new Array(lenW + 1)

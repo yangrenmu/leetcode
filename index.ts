@@ -10,7 +10,7 @@ fs.readdir("./problem", (err, files) => {
   }
   let content = "";
   if (files?.length > 0) {
-    content = "### leetcode \n";
+    content = "### leetcode \n\n";
     files.forEach((v) => {
       if (!isNaN(+v[0])) {
         content += `* [${v}](${fileLink}${v}) \n`;
