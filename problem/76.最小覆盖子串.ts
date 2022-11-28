@@ -64,18 +64,47 @@
 
 // @lc code=start
 function minWindow(s: string, t: string): string {
-  // let left = 0;
-  // let right = 1;
-  // let res = "";
-  function checkStr(str: string): boolean {
-    // if()
-    return true;
+  let left = 0;
+  let right = 0;
+  let start = 0;
+  let valid = 0;
+  const windowObj = {};
+  const tObj = {};
+  for (const key of t) {
+    if (tObj[key] === undefined) {
+      tObj[key] = 0;
+    }
+    tObj[key]++;
+    windowObj[key] = 0;
   }
+  const len = Object.keys(tObj).length;
+  let minLen = s.length + 1;
 
-  // while (right < s.length) {
-  //   const str = s.slice(left, right)
-  //   // if(checkStr(str))
-  // }
-  return "";
+  while (right < s.length) {
+    const c = s[right];
+    right++;
+    if (tObj[c]) {
+      windowObj[c]++;
+      if (windowObj[c] === tObj[c]) {
+        valid++;
+      }
+    }
+    while (valid === len) {
+      if (right - left < minLen) {
+        start = left;
+        minLen = right - left;
+      }
+      const d = s[left];
+      left++;
+
+      if (tObj[d]) {
+        if (windowObj[d] === tObj[d]) {
+          valid--;
+        }
+        windowObj[d]--;
+      }
+    }
+  }
+  return minLen === s.length + 1 ? "" : s.slice(start, start + minLen);
 }
 // @lc code=end
