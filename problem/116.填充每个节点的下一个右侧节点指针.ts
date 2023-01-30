@@ -69,6 +69,8 @@
  *
  */
 
+export {}
+
 // @lc code=start
 /**
  * Definition for Node.
@@ -88,19 +90,19 @@
 
 function traverse(leftNode: Node | null, rightNode: Node | null) {
   if (leftNode === null || rightNode === null) {
-    return null;
+    return null
   }
-  leftNode.next = rightNode;
-  traverse(leftNode.left, leftNode.right);
-  traverse(rightNode.left, rightNode.right);
-  traverse(leftNode.right, rightNode.left);
+  leftNode.next = rightNode
+  traverse(leftNode.left, leftNode.right)
+  traverse(rightNode.left, rightNode.right)
+  traverse(leftNode.right, rightNode.left)
 }
 
 function connect(root: Node | null): Node | null {
   if (root === null) {
-    return root;
+    return root
   }
-  traverse(root.left, root.right);
-  return root;
+  traverse(root.left, root.right)
+  return root
 }
 // @lc code=end
