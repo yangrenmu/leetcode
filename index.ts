@@ -11,7 +11,13 @@ fs.readdir("./problem", (err, files) => {
   let content = "";
   if (files?.length > 0) {
     content = "### leetcode \n\n";
-    files.forEach((v) => {
+    const fileSort = files.sort((a: string, b: string) => {
+      const num1 = a.split(".")[0];
+      const num2 = b.split(".")[0];
+      return +num1 - +num2;
+    });
+
+    fileSort.forEach((v) => {
       if (!isNaN(+v[0])) {
         content += `* [${v}](${fileLink}${v}) \n`;
       }
