@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "lib": ["es6", "es5", "es7", "dom"],
+    "lib": ["ES2015"],
     "allowJs": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -16,6 +16,8 @@
   "ts-node": {
     "esm": true
   },
-  "exclude": ["node_modules"],
+  "noLib": true,
+  "include": ["problem"],
+  "exclude": ["node_modules", "**/node_modules/*"],
   "files": ["./index.ts"]
 }
